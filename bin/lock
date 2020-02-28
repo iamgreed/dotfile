@@ -1,0 +1,27 @@
+#!/bin/bash
+ 
+rm /tmp/screen.png
+IMAGE=/tmp/screen.png
+
+import -silent -window root $IMAGE
+
+BLUR="-blur 2x3" 
+PIXEL="-scale 25% -scale 400%" 
+GRAY="-colorspace Gray -gamma 0.7"
+SEPIA="-sepia-tone 80%"
+CHARCOAL="-charcoal 5 "
+PAINT="-paint 1"
+SPREAD="-interpolate nearest -virtual-pixel mirror -spread 5"
+VIGNETTE="-background black -vignette 0x5" 
+RESIZE="-resize 10%"
+DERESIZE="-resize 1000%"
+
+
+#convert $IMAGE -scale 10% -scale 1000% -fill black -colorize 25% $IMAGE
+#convert $IMAGE -scale 25% -scale 400%  $IMAGE
+#convert $IMAGE -sepia-tone 80% $IMAGE
+
+convert $IMAGE $SPREAD $IMAGE
+
+
+i3lock -i $IMAGE
