@@ -122,6 +122,8 @@ alias v='f(){ amixer -q sset Master toggle;  unset -f f; }; f'
 
 alias tree='broot'
 alias grep='rg'
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
 
 # sets nvim as default editor
 export EDITOR=/usr/bin/nvim
