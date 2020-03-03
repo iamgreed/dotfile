@@ -1,5 +1,3 @@
-#!/bin/bash
-
 LOCK=""
 SLEEP=""
 LOGOUT=""
@@ -17,7 +15,9 @@ list_icons() {
 handle_option() {
     case "$1" in
         "$LOCK")
-            $HOME/bin/lock
+            if $($HOME/bin/rofi-confirm-menu $LOCK); then
+                $HOME/bin/lock
+            fi
             ;;
         "$SLEEP")
             if $($HOME/bin/rofi-confirm-menu $SLEEP); then
@@ -42,5 +42,5 @@ handle_option() {
     esac
 }
 
-SELECTION="$(list_icons | rofi -dmenu -theme $HOME/.config/rofi/options_menu)"
+SELECTION="$(list_icons | rofi -dmenu -theme options_menu)"
 handle_option $SELECTION &

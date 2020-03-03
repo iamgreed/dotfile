@@ -21,7 +21,7 @@ DERESIZE="-resize 1000%"
 #convert $IMAGE -scale 25% -scale 400%  $IMAGE
 #convert $IMAGE -sepia-tone 80% $IMAGE
 
-convert $IMAGE $SPREAD $IMAGE
+#convert $IMAGE $GRAY $IMAGE
 
 
 i3lock -i $IMAGE
